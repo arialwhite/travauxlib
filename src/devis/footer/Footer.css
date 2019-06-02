@@ -1,0 +1,12 @@
+footer {
+  color: #212529;
+  font-size: 16px;
+
+  border-top: 3px solid #dee2e6;
+  padding-top: 22px;
+}
+
+footer td:nth-child(2) {
+  font-weight: 600;
+}
+

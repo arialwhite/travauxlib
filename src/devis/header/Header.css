@@ -1,0 +1,12 @@
+header {
+    font-size: 14px;
+}
+
+.header-company,.deal {
+    text-align: left;
+}
+
+.header-company strong {
+    display: inline-block;
+    margin-left: .1rem;
+}

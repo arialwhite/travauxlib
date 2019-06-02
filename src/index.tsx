@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// es2019 shim
+// eslint-disable-next-line
+Array.prototype.flatMap = function(lambda) { 
+    return Array.prototype.concat.apply([], this.map(lambda)); 
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -1,0 +1,27 @@
+
+/* LOT/GROUP */
+
+.content-group-title {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.content-group-head {
+  padding: .7rem 0 .7rem .3rem;
+}
+
+.content-group-column {
+  width: 3.2cm;
+}
+
+/* LINE */
+
+.content-line-designation {
+  font-size: 14px;
+}
+
+.content-line-description {
+  color: #4a5e79;
+  font-weight: 400;
+  line-height: 19px;
+}

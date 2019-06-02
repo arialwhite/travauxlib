@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Devis } from './devis/Devis';
+import { useDevis } from './devis/useDevis';
+import { Tools } from './tools/Tools';
+import { ViewConfig, DEFAULT_VIEW_CONFIG } from './config.types';
+
+const Loading = () => {
+  return (
+    <h4 className="h4">
+      loading..
+    </h4>
+  );
+};
 
 const App: React.FC = () => {
-  return (
+  const [ viewConfig, setViewConfig ] = useState<ViewConfig>(DEFAULT_VIEW_CONFIG);
+  const { loading, devis } = useDevis("/travaux.json");
+
+  return loading ? Loading() : (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tools viewConfig={viewConfig} viewConfigChange={setViewConfig}></Tools>
+      <Devis viewConfig={viewConfig} devis={devis}></Devis>
     </div>
   );
 }
