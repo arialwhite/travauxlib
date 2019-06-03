@@ -28,8 +28,8 @@ export const Header: React.FC<Props> = (props: Props) => {
       </div>
     </header>
   );
-}
+};
 
 function formatDate(date: LOCAL_DATE): string {
-  return date ? date.split('-').reverse().join('/'): '';
+  return date ? date.split('-').reverse().join('/') : '';
 }

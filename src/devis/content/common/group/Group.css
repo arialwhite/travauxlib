@@ -1,4 +1,3 @@
-
 /* LOT/GROUP */
 
 .content-group-title {
@@ -12,16 +11,4 @@
 
 .content-group-column {
   width: 3.2cm;
-}
-
-/* LINE */
-
-.content-line-designation {
-  font-size: 14px;
-}
-
-.content-line-description {
-  color: #4a5e79;
-  font-weight: 400;
-  line-height: 19px;
 }

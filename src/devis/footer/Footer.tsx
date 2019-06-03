@@ -40,4 +40,4 @@ export const Footer: React.FC<Props> = (props: Props) => {
       </table>
     </footer>
   );
-}
+};

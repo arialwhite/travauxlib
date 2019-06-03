@@ -1,17 +1,19 @@
 import React from 'react';
 import './Devis.css';
 import { Header } from './header/Header';
-import { getContent } from './content/Content';
 import { Footer } from './footer/Footer';
 import { Devis as DevisModel } from './devis.types';
-import { ViewConfig } from '../config.types';
+import { ViewConfig, DisplayMode } from '../config.types';
+import { ContentView } from './content/common/view.types';
+import { ViewByLocation } from './content/view-by-location/ViewByLocation';
+import { ViewtByLot } from './content/view-by-lot/ViewByLot';
 
 type Props = { devis: DevisModel, viewConfig: ViewConfig };
 
 export const Devis: React.FC<Props> = (props: Props) => {
   const { devis, viewConfig } = props;
 
-  const Content = getContent(viewConfig);
+  const ContentView = getContentView(viewConfig);
 
   return (
     <div className="devis">
@@ -22,9 +24,16 @@ export const Devis: React.FC<Props> = (props: Props) => {
       <br /><br />
       <Header company={devis.company} deal={devis.deal} date={devis.date}></Header>
       <br /><br />
-      <Content sections={devis.sections} locations={devis.locations}></Content>
+      <ContentView sections={devis.sections} locations={devis.locations}></ContentView>
       <br /><br />
       <Footer devis={devis}></Footer>
     </div>
   );
+};
+
+function getContentView(viewConfig: ViewConfig): ContentView {
+  switch (viewConfig.displayMode) {
+    case DisplayMode.BY_LOCATION: return ViewByLocation;
+    case DisplayMode.BY_LOT: return ViewtByLot;
+  }
 }
