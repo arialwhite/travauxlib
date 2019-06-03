@@ -1,6 +1,6 @@
 import { Line, Section, Location } from "../../devis.types";
 
-export type LinesGroup = { location: Location, lines: Array<Line> }; // lines by location aggregate
+export type LinesGroup = { location: Location, lines: Array<Line> }; // lines by location
 
 const DEFAULT_LOCATION: Location = { label: 'Autres prestations', surface: null, uuid: 'default' };
 
@@ -63,6 +63,8 @@ function createsEmptyGroups(locations: Array<Location>): Array<LinesGroup> {
 
 /**
  * Get location ids (UUID) of a line
+ * 
+ * note: return default location uuid when there is no location available
  * @param line 
  */
 function getLocationIds(line: Line): Array<string> {
